@@ -8,6 +8,7 @@ import firebase from "./Firebase";
 import Header from "./Components/Header";
 import { Col, Container, Row } from "react-bootstrap";
 import ListCard from "./Components/ListCard";
+import Fade from "react-reveal/Fade";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class App extends React.Component {
       return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
     if (loading) {
-      return <h1>Loading..</h1>;
+      return <div class="loader">Loading...</div>;
     }
     console.log(this.state.list);
     return (
@@ -107,23 +108,30 @@ class App extends React.Component {
         <div className="container">
           {this.state.start === "start" || search === "start" ? (
             <div>
-              <center>
-                {" "}
-                <h1>What are you looking for?</h1>
-              </center>
-              <div className="mid-container">
-                <div className="mid-btn">ICU Beds</div>
-                <div className="mid-btn">Oxygen Beds</div>
-                <div className="mid-btn">Oxygen Supplies</div>
-                <div className="mid-btn">Medicines</div>
-                <div className="mid-btn">Tiffins?</div>
-              </div>
+              <Fade>
+                <center>
+                  {" "}
+                  <h1>What are you looking for?</h1>
+                </center>
+                <div className="mid-container">
+                  <div className="mid-btn">ICU Beds</div>
+                  <div className="mid-btn">Oxygen Beds</div>
+                  <div className="mid-btn">Oxygen Supplies</div>
+                  <div className="mid-btn">Medicines</div>
+                  <div className="mid-btn">Food Facilities</div>
+                </div>
+                <center>
+                  <h3>You are at the right place!!</h3>
+                </center>
+              </Fade>
             </div>
           ) : (
             <Row>
               {filteredC.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
-                  <ListCard key={i} id={data.id} city={data.City} />
+                  <Fade>
+                    <ListCard key={i} id={data.id} city={data.City} />
+                  </Fade>
                 </Col>
               ))}
             </Row>
@@ -184,17 +192,19 @@ class App extends React.Component {
             </div>
           </div>
           <div className="banner-2">
-            <div className="b2-container">
-              <div className="b2-1">
-                <h5>Join Us</h5>
+            <Fade>
+              <div className="b2-container">
+                <div className="b2-1">
+                  <h5>Join Us</h5>
+                </div>
+                <div className="b2-1">
+                  <h5>Help us to collect Data</h5>
+                </div>
+                <div className="b2-1">
+                  <h5>Fill this form</h5>
+                </div>
               </div>
-              <div className="b2-1">
-                <h5>Help us to collect Data</h5>
-              </div>
-              <div className="b2-1">
-                <h5>Fill this form</h5>
-              </div>
-            </div>
+            </Fade>
           </div>
         </div>
       </div>
