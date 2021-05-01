@@ -18,39 +18,102 @@
   font-size: large;
 }
 
-.input-group {
+.input-group-div {
   margin-top: 20px;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 40px auto;
 }
 
 .select-btn {
-  width: 200px;
-  height: 40px;
+  width: 250px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.search-bar {
+  box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.25),
+    -3px -3px 15px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0px;
+  z-index: 0;
+  box-shadow: none;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 15px;
+  border: 1px solid;
+  padding: 0px 5px 0px 5px;
+  color: #3d3935;
+  width: 250px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
+.b2-container {
+  display: grid;
+  place-items: center;
+}
+.b1-container {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  text-align: center;
+}
+.b2-1 {
+  width: 300px;
+  height: 80px;
+  border-radius: 10px;
+  transition: 0.4s;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  background: linear-gradient(to bottom left, #dd9db0 13%, #4fa1e8 60%);
+}
+.b2-1:hover {
+  transform: scale(0.9, 0.9);
+}
+.b2-1 > h5 {
+  padding: 25px;
+}
+.card_design {
+  margin: 30px auto;
+
+  border-radius: 30px !important;
+  box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.25),
+    -3px -3px 15px 5px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+.card_design:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
 .mid-container {
+  margin-bottom: 60px;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .mid-btn {
-  margin-top: 40px;
-  background: linear-gradient(to right, #b38aff 41%, #6461ff 66%);
+  margin-top: 30px;
+
   padding: 20px;
   border-radius: 10px;
   color: white;
   width: 300px;
+  margin-bottom: 20px;
   text-align: center;
+  background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
 }
 .banner {
   background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
   width: 100%;
   color: whitesmoke;
   padding: 20px;
-  /* position: fixed; */
   margin-top: 30px;
   left: 0;
   bottom: 0;
@@ -75,5 +138,11 @@
     padding: 20px;
     border-radius: 15px;
     flex-direction: column !important;
+  }
+  .b2-1 {
+    width: 250px;
+  }
+  .b2-1 > h5 {
+    font-size: 15px;
   }
 }

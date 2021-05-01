@@ -68,8 +68,13 @@ class App extends React.Component {
             </div>
           </center>
         </div>
-        <div className="input-group">
+        <div className="input-group-div">
           <div className="btn1">
+            <select className="select-btn" disabled>
+              <option>Madhya Pradesh</option>
+            </select>
+          </div>
+          <div className="btn2">
             <select
               className="select-btn"
               onChange={this.onChange}
@@ -77,11 +82,14 @@ class App extends React.Component {
             >
               <option value="start">Select City</option>
               <option value="">All</option>
-              <option value="Bhopal">Bhopal</option>
+              {/* <option value="Bhopal">Bhopal</option>
               <option value="Bhojpur">Bhojpur</option>
               <option value="Dewas">Dewas</option>
-              <option value="Indore">Indore</option>
+              <option value="Indore">Indore</option> */}
               {/* <option value="KK">KK</option> */}
+              {this.state.list.map((data) => (
+                <option value={data.City}>{data.City}</option>
+              ))}
             </select>
           </div>
           <div className="btn2">
@@ -120,6 +128,7 @@ class App extends React.Component {
               ))}
             </Row>
           )}
+
           {/* <table id="example" className="table table-striped table-hover">
             <thead className="thead-dark">
               <tr>
@@ -161,22 +170,31 @@ class App extends React.Component {
         </div>
         <div className="banner">
           <div className="banner-1">
-            Be a Superhero! Join forces We’re a team of strangers. A common
-            mission -- to help India during the Covid crisis, brought us all
-            together to create this platform. We need your support. If you’ve
-            any verified information, we sincerely request you to add it. Don’t
-            worry! We’ll verify it before publishing. If you want to help us in
-            verifying and updating all the information, please become a
-            volunteer. We need you. India needs you!Indian flag If you’ve
-            developed a similar platform, let’s join hands to create a common
-            database, enabling consistent information across the platforms.
+            <div className="b1-container">
+              Be a Superhero! Join forces We’re a team of strangers. A common
+              mission -- to help India during the Covid crisis, brought us all
+              together to create this platform. We need your support. If you’ve
+              any verified information, we sincerely request you to add it.
+              Don’t worry! We’ll verify it before publishing. If you want to
+              help us in verifying and updating all the information, please
+              become a volunteer. We need you. India needs you!Indian flag If
+              you’ve developed a similar platform, let’s join hands to create a
+              common database, enabling consistent information across the
+              platforms.
+            </div>
           </div>
           <div className="banner-2">
-            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used
-            in laying out print, graphic or web designs. The passage is
-            attributed to an unknown typesetter in the 15th century who is
-            thought to have scrambled parts of Cicero's De Finibus Bonorum et
-            Malorum for use in a type specimen book.
+            <div className="b2-container">
+              <div className="b2-1">
+                <h5>Join Us</h5>
+              </div>
+              <div className="b2-1">
+                <h5>Help us to collect Data</h5>
+              </div>
+              <div className="b2-1">
+                <h5>Fill this form</h5>
+              </div>
+            </div>
           </div>
         </div>
       </div>

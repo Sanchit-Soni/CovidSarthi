@@ -27,29 +27,6 @@
 .App-link {
   color: #61dafb;
 }
-.search-bar {
-  /* height: 25px;
-      width: 150px;
-      margin-top: 10px;
-      color: black;
-      background: beige;
-      border: 1px solid black;
-      text-align: center;
-      border-radius: 5px;
-  } */
-  border-radius: 0px;
-  z-index: 0;
-  box-shadow: none;
-  height: 42px;
-  font-size: 15px;
-  border: 1px solid;
-  padding: 0px 5px 0px 5px;
-  color: #3d3935;
-  width: 200px;
-  margin-bottom: 10px;
-
-  margin-top: 10px;
-}
 
 @keyframes App-logo-spin {
   from {
