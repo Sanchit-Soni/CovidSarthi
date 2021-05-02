@@ -1,10 +1,20 @@
 .header {
-  background: linear-gradient(to right, #0066eb 5%, #ff8ab3 79%);
+  /* background: linear-gradient(to right, #0066eb 5%, #ff8ab3 79%); */
+  background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
+
+  /* background: linear-gradient(to right, #0066eb 0%, #33fffc 100%); */
   padding: 10px;
   color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+}
+.icon-image {
+  padding: 5px;
+  height: 90px;
+  width: 90px;
 }
 .head-text {
-  padding: 10px;
+  padding: 20px 20px 20px 3px;
 }
 
 .container-1 {
@@ -20,6 +30,7 @@
 
 .input-group-div {
   margin-top: 20px;
+  max-width: 1300px;
   width: 80%;
   display: flex;
   flex-direction: row;

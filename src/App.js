@@ -52,6 +52,7 @@ class App extends React.Component {
     const filteredC = filteredNames.filter((country) => {
       return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
+
     if (loading) {
       return <div class="loader">Loading...</div>;
     }

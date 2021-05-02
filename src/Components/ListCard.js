@@ -16,6 +16,7 @@ const ListCard = ({ id, city }) => {
         <Card.Text as="div">ID: {id}</Card.Text>
         <Card.Text as="h4">City: {city}</Card.Text>
         <Card.Text>Beds available: 100</Card.Text>
+        <Card.Text>Beds available:</Card.Text>
 
         <hr></hr>
       </Card.Body>
