@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //Calling Firebase config setting to call the data
 import firebase from "./Firebase";
 import Header from "./Components/Header";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import ListCard from "./Components/ListCard";
 import OxygenCards from "./Components/OxygenCards";
 import PlasmaCards from "./Components/PlasmaCards";
@@ -130,7 +130,12 @@ class App extends React.Component {
             ></input>
           </div>
         </div>
-
+        <center>
+          {" "}
+          <Button onClick={() => this.setState({ start: "start" })}>
+            Reset
+          </Button>
+        </center>
         <br></br>
 
         <br></br>
