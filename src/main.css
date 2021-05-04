@@ -110,7 +110,13 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
+.btn-reset {
+  width: 100px;
+  padding: 10px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: white;
+}
 .mid-btn {
   margin-top: 30px;
   cursor: pointer;

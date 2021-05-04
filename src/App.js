@@ -59,6 +59,11 @@ class App extends React.Component {
       start: "end",
     });
   };
+  onTypeChange = (e) => {
+    this.setState({
+      checker: e.target.value,
+    });
+  };
 
   render() {
     let filteredNames = this.state.list;
@@ -98,46 +103,59 @@ class App extends React.Component {
             </div>
           </center>
         </div>
-        <div className="input-group-div">
-          <div className="btn1">
-            <select className="select-btn" disabled>
-              <option>Madhya Pradesh</option>
-            </select>
-          </div>
-          <div className="btn2">
-            <select
-              className="select-btn"
-              onChange={this.onChange}
-              placeholder="Select City"
-            >
-              <option value="start">Select City</option>
-              <option value="">All</option>
-              {/* <option value="Bhopal">Bhopal</option>
+        <form>
+          <div className="input-group-div">
+            <div className="btn1">
+              <select className="select-btn" disabled>
+                <option>Madhya Pradesh</option>
+              </select>
+            </div>
+            <div className="btn2">
+              <select
+                className="select-btn"
+                onChange={this.onChange}
+                placeholder="Select City"
+              >
+                <option value="start">Select City</option>
+                <option value="">All</option>
+                {/* <option value="Bhopal">Bhopal</option>
               <option value="Bhojpur">Bhojpur</option>
               <option value="Dewas">Dewas</option>
               <option value="Indore">Indore</option> */}
-              {/* <option value="KK">KK</option> */}
-              {this.state.list.map((data) => (
-                <option value={data.City}>{data.City}</option>
-              ))}
-            </select>
+                {/* <option value="KK">KK</option> */}
+                {this.state.list.map((data) => (
+                  <option value={data.City}>{data.City}</option>
+                ))}
+              </select>
+            </div>
+            <div className="btn2">
+              <input
+                placeholder="Search City"
+                onChange={this.onChange}
+                className="search-bar"
+              ></input>
+            </div>
+            <div className="btn3">
+              <select onChange={this.onTypeChange} className="select-btn">
+                <option value="Hospitals">Hospitals</option>
+                <option value="Plasma">Plasma</option>
+                <option value="Medicines">Medicines</option>
+                <option value="Oxygen">Oxygen</option>
+              </select>
+            </div>
           </div>
-          <div className="btn2">
+          <center>
+            {" "}
             <input
-              placeholder="Search City"
-              onChange={this.onChange}
-              className="search-bar"
-            ></input>
-          </div>
-        </div>
-        <center>
-          {" "}
-          <Button onClick={() => this.setState({ start: "start" })}>
-            Reset
-          </Button>
-        </center>
-        <br></br>
+              className="btn-reset"
+              type="reset"
+              value="Reset"
+              onClick={() => this.setState({ start: "start" })}
+            />
+          </center>
 
+          <br></br>
+        </form>
         <br></br>
 
         <div className="container">
@@ -160,19 +178,19 @@ class App extends React.Component {
                   </div>
                   <div
                     className="mid-btn"
-                    onClick={() => this.setState({ checker: "oxygen" })}
+                    onClick={() => this.setState({ checker: "Oxygen" })}
                   >
                     Oxygen
                   </div>
                   <div
                     className="mid-btn"
-                    onClick={() => this.setState({ checker: "plasma" })}
+                    onClick={() => this.setState({ checker: "Plasma" })}
                   >
                     Plasma
                   </div>
                   <div
                     className="mid-btn"
-                    onClick={() => this.setState({ checker: "medicines" })}
+                    onClick={() => this.setState({ checker: "Medicines" })}
                   >
                     Medicines
                   </div>
@@ -192,7 +210,7 @@ class App extends React.Component {
                 </Col>
               ))}
             </Row>
-          ) : this.state.checker === "oxygen" ? (
+          ) : this.state.checker === "Oxygen" ? (
             <Row>
               {filteredO.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
@@ -202,7 +220,7 @@ class App extends React.Component {
                 </Col>
               ))}
             </Row>
-          ) : this.state.checker === "plasma" ? (
+          ) : this.state.checker === "Plasma" ? (
             <Row>
               {filteredP.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
@@ -212,7 +230,7 @@ class App extends React.Component {
                 </Col>
               ))}
             </Row>
-          ) : this.state.checker === "medicines" ? (
+          ) : this.state.checker === "Medicines" ? (
             <Row>
               {filteredM.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
