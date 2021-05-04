@@ -8,6 +8,10 @@ import firebase from "./Firebase";
 import Header from "./Components/Header";
 import { Col, Container, Row } from "react-bootstrap";
 import ListCard from "./Components/ListCard";
+import OxygenCards from "./Components/OxygenCards";
+import PlasmaCards from "./Components/PlasmaCards";
+import MedicineCards from "./Components/MedicineCards";
+
 import Fade from "react-reveal/Fade";
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +20,14 @@ class App extends React.Component {
     this.state = {
       studentslist: [],
       list: [],
+      medicines_data: [],
+      oxygen_data: [],
+      plasma_data: [],
+      checker: "Hospitals",
       search: "",
       loading: 1,
       start: "start",
+      active: "red",
     };
   }
 
@@ -35,7 +44,13 @@ class App extends React.Component {
         this.setState({ studentslist: studentlist }, () => {
           console.log(this.state.studentslist);
         });
-        this.setState({ list: studentlist[0], loading: 0 });
+        this.setState({
+          list: studentlist[0],
+          loading: 0,
+          medicines_data: studentlist[1],
+          oxygen_data: studentlist[2],
+          plasma_data: studentlist[3],
+        });
       });
   }
   onChange = (e) => {
@@ -47,9 +62,22 @@ class App extends React.Component {
 
   render() {
     let filteredNames = this.state.list;
+    let filteredOxygen = this.state.oxygen_data;
+    let filteredPlasma = this.state.plasma_data;
+    let filteredMedicine = this.state.medicines_data;
+    console.log(this.state.oxygen_data);
     const { loading } = this.state;
     const { search } = this.state;
     const filteredC = filteredNames.filter((country) => {
+      return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
+    const filteredO = filteredOxygen.filter((country) => {
+      return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
+    const filteredP = filteredPlasma.filter((country) => {
+      return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+    });
+    const filteredM = filteredMedicine.filter((country) => {
       return country.City.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
 
@@ -104,6 +132,7 @@ class App extends React.Component {
         </div>
 
         <br></br>
+
         <br></br>
 
         <div className="container">
@@ -114,19 +143,41 @@ class App extends React.Component {
                   {" "}
                   <h1>What are you looking for?</h1>
                 </center>
+                <center>
+                  <h4>({this.state.checker})</h4>
+                </center>
                 <div className="mid-container">
-                  <div className="mid-btn">ICU Beds</div>
-                  <div className="mid-btn">Oxygen Beds</div>
-                  <div className="mid-btn">Oxygen Supplies</div>
-                  <div className="mid-btn">Medicines</div>
-                  <div className="mid-btn">Food Facilities</div>
+                  <div
+                    className="mid-btn"
+                    onClick={() => this.setState({ checker: "Hospitals" })}
+                  >
+                    Hospitals/Beds
+                  </div>
+                  <div
+                    className="mid-btn"
+                    onClick={() => this.setState({ checker: "oxygen" })}
+                  >
+                    Oxygen
+                  </div>
+                  <div
+                    className="mid-btn"
+                    onClick={() => this.setState({ checker: "plasma" })}
+                  >
+                    Plasma
+                  </div>
+                  <div
+                    className="mid-btn"
+                    onClick={() => this.setState({ checker: "medicines" })}
+                  >
+                    Medicines
+                  </div>
                 </div>
                 <center>
                   <h3>You are at the right place!!</h3>
                 </center>
               </Fade>
             </div>
-          ) : (
+          ) : this.state.checker === "Hospitals" ? (
             <Row>
               {filteredC.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
@@ -136,46 +187,39 @@ class App extends React.Component {
                 </Col>
               ))}
             </Row>
-          )}
-
-          {/* <table id="example" className="table table-striped table-hover">
-            <thead className="thead-dark">
-              <tr>
-                <th>ID</th>
-                <th>City</th>
-                <th>Hospital Name</th>
-                <th>Officials</th>
-                <th>Charges </th>
-                <th>Vacant Bed Without Isolation</th>
-                <th>Vacant Bed With Isolation</th>
-                <th>Vacant Bed Without ICU</th>
-                <th>Vacant Bed With ICU</th>
-                <th>Vacant Bed With Ventilator</th>
-                <th>Verified</th>
-                <th>Last Verified</th>
-                <th>Source</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredC.map((data, i) => (
-                <tr key={i}>
-                  <td>{data.id}</td>
-                  <td>{data.City}</td>
-                  <td>{data.Hospital_Category}</td>
-                  <td>{data.Officials}</td>
-                  <td>{data.Charges}</td>
-                  <td>{data.Vacant_Bed_W_Isolation}</td>
-                  <td>{data.Vacant_Bed_Isolation}</td>
-                  <td>{data.Vacant_Bed_of_ICU_Without}</td>
-                  <td>{data.Vacant_Bed_of_ICU_With}</td>
-                  <td>{data.Vacant_Bed_With_Vent}</td>
-                  <td>{data.Verified}</td>
-                  <td>{data.Last_Verified}</td>
-                  <td>{data.Source}</td>
-                </tr>
+          ) : this.state.checker === "oxygen" ? (
+            <Row>
+              {filteredO.map((data, i) => (
+                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                  <Fade>
+                    <OxygenCards key={i} id={data.id} city={data.City} />
+                  </Fade>
+                </Col>
               ))}
-            </tbody>
-          </table> */}
+            </Row>
+          ) : this.state.checker === "plasma" ? (
+            <Row>
+              {filteredP.map((data, i) => (
+                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                  <Fade>
+                    <PlasmaCards key={i} id={data.id} city={data.City} />
+                  </Fade>
+                </Col>
+              ))}
+            </Row>
+          ) : this.state.checker === "medicines" ? (
+            <Row>
+              {filteredM.map((data, i) => (
+                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                  <Fade>
+                    <MedicineCards key={i} id={data.id} city={data.City} />
+                  </Fade>
+                </Col>
+              ))}
+            </Row>
+          ) : (
+            <h1>no data</h1>
+          )}
         </div>
         <div className="banner">
           <div className="banner-1">
