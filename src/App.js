@@ -225,7 +225,16 @@ class App extends React.Component {
               {filteredP.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
                   <Fade>
-                    <PlasmaCards key={i} id={data.id} city={data.City} />
+                    <PlasmaCards
+                      key={i}
+                      id={data.id}
+                      city={data.City}
+                      area={data.Area}
+                      name={data.Name}
+                      pno={data.Phone_number}
+                      comments={data.comments}
+                      verified={data.verified}
+                    />
                   </Fade>
                 </Col>
               ))}
@@ -235,7 +244,20 @@ class App extends React.Component {
               {filteredM.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
                   <Fade>
-                    <MedicineCards key={i} id={data.id} city={data.City} />
+                    <MedicineCards
+                      key={i}
+                      id={data.id}
+                      city={data.City}
+                      area={data.Area}
+                      Medicine_Name={data.Medicine_Name}
+                      Brand_Name={data.Brand_Name}
+                      Medical_Name={data.Medical_Name}
+                      Medical_Address={data.Medical_Address}
+                      contact={data.contact}
+                      charges={data.charges}
+                      verified={data.verified}
+                      source={data.source}
+                    />
                   </Fade>
                 </Col>
               ))}
