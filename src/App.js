@@ -115,6 +115,7 @@ class App extends React.Component {
                 className="select-btn"
                 onChange={this.onChange}
                 placeholder="Select City"
+                required
               >
                 <option value="start">Select City</option>
                 <option value="">All</option>
@@ -203,9 +204,20 @@ class App extends React.Component {
           ) : this.state.checker === "Hospitals" ? (
             <Row>
               {filteredC.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
-                    <ListCard key={i} id={data.id} city={data.City} />
+                    <ListCard
+                      key={i}
+                      id={data.id}
+                      city={data.City}
+                      hospital={data.Hospital_Name}
+                      address={data.Hospital_Address}
+                      bed_status={data.Bed_Status}
+                      totalBeds={data.Total_Beds}
+                      avail_beds={data.Available_Beds}
+                      bed_division={data.Bed_Division}
+                      contact={data.Contact}
+                    />
                   </Fade>
                 </Col>
               ))}
@@ -215,7 +227,18 @@ class App extends React.Component {
               {filteredO.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={3}>
                   <Fade>
-                    <OxygenCards key={i} id={data.id} city={data.City} />
+                    <OxygenCards
+                      key={i}
+                      id={data.id}
+                      city={data.City}
+                      area={data.Area}
+                      provider_name={data.Provider_name}
+                      contact={data.contact}
+                      comments={data.comments}
+                      verified={data.verified}
+                      last_verified={data.last_verified}
+                      source={data.source}
+                    />
                   </Fade>
                 </Col>
               ))}
@@ -263,7 +286,7 @@ class App extends React.Component {
               ))}
             </Row>
           ) : (
-            <h1>no data</h1>
+            <h1>no data available</h1>
           )}
         </div>
         <div className="banner">
