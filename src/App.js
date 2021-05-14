@@ -129,13 +129,13 @@ class App extends React.Component {
                 ))}
               </select>
             </div>
-            <div className="btn2">
+            {/* <div className="btn2">
               <input
                 placeholder="Search City"
                 onChange={this.onChange}
                 className="search-bar"
               ></input>
-            </div>
+            </div> */}
             <div className="btn3">
               <select onChange={this.onTypeChange} className="select-btn">
                 <option value="Hospitals">Hospitals</option>
@@ -225,7 +225,7 @@ class App extends React.Component {
           ) : this.state.checker === "Oxygen" ? (
             <Row>
               {filteredO.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <OxygenCards
                       key={i}
@@ -246,7 +246,7 @@ class App extends React.Component {
           ) : this.state.checker === "Plasma" ? (
             <Row>
               {filteredP.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <PlasmaCards
                       key={i}
@@ -257,6 +257,7 @@ class App extends React.Component {
                       pno={data.Phone_number}
                       comments={data.comments}
                       verified={data.verified}
+                      last_verified={data.last_verified}
                     />
                   </Fade>
                 </Col>
@@ -265,7 +266,7 @@ class App extends React.Component {
           ) : this.state.checker === "Medicines" ? (
             <Row>
               {filteredM.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <MedicineCards
                       key={i}

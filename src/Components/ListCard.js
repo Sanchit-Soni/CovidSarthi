@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Card, Col, NavLink, Row,ListGroup } from "react-bootstrap";
-import '../App.css';
+import { Button, Card, Col, NavLink, Row, ListGroup } from "react-bootstrap";
+import "../App.css";
 const ListCard = ({
   id,
   city,
@@ -16,8 +16,10 @@ const ListCard = ({
   const contactSplit = contact.split(",");
 
   return (
-    <Card class="card-deco">
-      <Card.Header><i class="fas fa-hospital"></i> Hospitals in {city}</Card.Header>
+    <Card className="my-3  card-deco card_design ">
+      <Card.Header>
+        <i className="fas fa-hospital"></i> Hospitals in {city}
+      </Card.Header>
       <Card.Body>
         {/*<Card.Title as="div">
           <center>
@@ -27,41 +29,45 @@ const ListCard = ({
           </center>
   </Card.Title>*/}
         <Card.Text>
-          <h5 class="text-center">
-            {hospital}
-          </h5><hr></hr>
+          <h5 className="text-center">{hospital}</h5>
+          <hr></hr>
           <ListGroup>
             <ListGroup.Item>
-            <Row>
-            <Col xs={7}>Status</Col>
-            <Col xs={5}>{" "}{bed_status ? (<i class="far fa-check-circle"></i>
-              ) : (
-                <i class="fas fa-times"></i>
-              )}</Col>
-          </Row>
+              <Row>
+                <Col xs={7}>Status</Col>
+                <Col xs={5}>
+                  {" "}
+                  {bed_status ? (
+                    <i className="far fa-check-circle"></i>
+                  ) : (
+                    <i className="fas fa-times"></i>
+                  )}
+                </Col>
+              </Row>
             </ListGroup.Item>
 
-          {/*<Card.Text>
+            {/*<Card.Text>
               Status:{" "}
               {bed_status ? (
-                <i class="far fa-check-circle"></i>
+                <i className="far fa-check-circle"></i>
               ) : (
-                <i class="fas fa-times"></i>
+                <i className="fas fa-times"></i>
               )}
               </Card.Text>*/}
             <ListGroup.Item>
-            <Row>
-            <Col xs={7}>Total Beds</Col>
-            <Col xs={5}>{totalBeds}</Col>
-            </Row>
+              <Row>
+                <Col xs={7}>Total Beds</Col>
+                <Col xs={5}>{totalBeds}</Col>
+              </Row>
             </ListGroup.Item>
             <ListGroup.Item>
-          <Row>
-            <Col xs={7}>Available Beds</Col>
-            <Col xs={5}>{avail_beds}</Col>
-          </Row></ListGroup.Item>
-            </ListGroup>
-            {/*<Card.Text>Total Beds: {totalBeds}</Card.Text><Card.Text>Available Beds: {avail_beds}</Card.Text>*/}
+              <Row>
+                <Col xs={7}>Available Beds</Col>
+                <Col xs={5}>{avail_beds}</Col>
+              </Row>
+            </ListGroup.Item>
+          </ListGroup>
+          {/*<Card.Text>Total Beds: {totalBeds}</Card.Text><Card.Text>Available Beds: {avail_beds}</Card.Text>*/}
           {/*
           <Col>
             <Card.Text>
@@ -69,24 +75,29 @@ const ListCard = ({
                 <p>{data}</p>
               ))}
             </Card.Text>
-              </Col>*/} 
+              </Col>*/}
           <br></br>
-          <div class="border text-justify">
-          <h6 class="contacts">
-          <i class="fas fa-phone-square-alt"></i> Contacts{" "}
-          </h6>
-          <ul>
-          {contactSplit.map((data, i) => (
-            <p><i class="fas fa-hospital-user icon-space"></i>{data}</p>
-          ))}</ul></div>
+          <div className="border text-justify">
+            <h6 className="contacts">
+              <i className="fas fa-phone-square-alt"></i> Contacts{" "}
+            </h6>
+            <div className="contact-div">
+              {contactSplit.map((data, i) => (
+                <p>
+                  <i className="fas fa-hospital-user icon-space"></i>
+                  {data}
+                </p>
+              ))}
+            </div>
+          </div>
         </Card.Text>
       </Card.Body>
       <Card.Footer className="text-center">
-             <small>
-             <i class="fas fa-map-marker-alt" size="3px"></i>
-              <a href={address}>{" "} Location</a>
-             </small>
-        </Card.Footer>
+        <div>
+          <i className="fas fa-map-marker-alt" size="3px"></i>
+          <a href={address}> Location</a>
+        </div>
+      </Card.Footer>
     </Card>
   );
 };
