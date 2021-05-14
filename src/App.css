@@ -1,3 +1,14 @@
+.contacts {
+  padding: 4%;
+}
+.icon-space {
+  padding: 2%;
+}
+
+
+i {
+  color: rgb(0, 140, 255);
+}
 .App {
   text-align: center;
 }
