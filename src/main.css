@@ -45,6 +45,7 @@
   height: 50px;
   margin-top: 10px;
   border-radius: 5px;
+  background-color: white;
 }
 .search-bar {
   box-shadow: 3px 3px 15px 5px rgba(0, 0, 0, 0.25),
