@@ -11,6 +11,7 @@ import ListCard from "./Components/ListCard";
 import OxygenCards from "./Components/OxygenCards";
 import PlasmaCards from "./Components/PlasmaCards";
 import MedicineCards from "./Components/MedicineCards";
+import cvslogo from "./img/cvslogo.jpeg";
 
 import Fade from "react-reveal/Fade";
 class App extends React.Component {
@@ -95,6 +96,9 @@ class App extends React.Component {
         <Header />
         <div className="container-1">
           <center>
+            <div className="icon">
+              <img className="icon-image1" src={cvslogo}></img>
+            </div>
             <h1>CovidSarthi.in</h1>
             <div className="container1-text">
               Powered by an army of selfless volunteers, working 24x7 to help
@@ -165,10 +169,10 @@ class App extends React.Component {
               <Fade>
                 <center>
                   {" "}
-                  <h1>What are you looking for?</h1>
+                  <h1 className="media-text">What are you looking for?</h1>
                 </center>
                 <center>
-                  <h4>({this.state.checker})</h4>
+                  <h4 className="media-text">({this.state.checker})</h4>
                 </center>
                 <div className="mid-container">
                   <div

@@ -17,6 +17,13 @@
   width: 90px;
   /* background-image: "./img/logo.png"; */
 }
+.icon-image1 {
+  /* padding: 5px; */
+  height: 90px;
+  width: 110px;
+  margin-bottom: 10px;
+  border-radius: 35px;
+}
 .head-text {
   padding: 15px 0px 0px 0px;
 }
@@ -73,7 +80,7 @@
   display: grid;
   place-items: center;
   padding: 20px;
-  text-align: center;
+  text-align: justify;
 }
 .row-data {
   margin-top: 30px;
@@ -98,10 +105,12 @@
   height: 80px;
   border-radius: 10px;
   transition: 0.4s;
+  color: black;
   margin-top: 10px;
   cursor: pointer;
   text-align: center;
-  background: linear-gradient(to bottom left, #dd9db0 13%, #4fa1e8 60%);
+  background: linear-gradient(97.93deg, #ffffff 30.88%, #3ed8ff 109.61%);
+  /* background: linear-gradient(to bottom left, #dd9db0 13%, #4fa1e8 60%); */
 }
 .b2-1:hover {
   transform: scale(0.9, 0.9);
@@ -161,13 +170,16 @@
   transition: 0.4s;
 
   text-align: center;
-  background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
+  /* background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
+   */
+  background-color: rgb(8, 111, 250);
 }
 .mid-btn:hover {
   transform: scale(0.9, 0.9);
 }
 .banner {
-  background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%);
+  /* background: linear-gradient(97.93deg, #4452ce 43.88%, #6744cc 109.61%); */
+  background-color: rgb(8, 111, 250);
   width: 100%;
   color: whitesmoke;
   padding: 20px;
@@ -206,6 +218,10 @@
     border-radius: 15px;
     flex-direction: column !important;
   }
+  .media-text {
+    font-size: x-large;
+  }
+
   .b2-1 {
     width: 250px;
   }

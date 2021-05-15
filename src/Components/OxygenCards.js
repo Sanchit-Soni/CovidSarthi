@@ -97,9 +97,9 @@ const OxygenCards = ({
                 <Col xs={5}>
                   {" "}
                   {verified ? (
-                    <i className="far fa-check-circle"></i>
+                    <i className="far fa-check-circle tick"></i>
                   ) : (
-                    <i className="fas fa-times"></i>
+                    <i className="fas fa-times wrong"></i>
                   )}
                 </Col>
               </Row>
