@@ -11,8 +11,18 @@ import ListCard from "./Components/ListCard";
 import OxygenCards from "./Components/OxygenCards";
 import PlasmaCards from "./Components/PlasmaCards";
 import MedicineCards from "./Components/MedicineCards";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+import SwiperCore, {
+  EffectCoverflow,
+  Autoplay,
+  Pagination,
+  Lazy,
+} from "swiper";
 import Fade from "react-reveal/Fade";
+import classes from "./Assests/slider.css";
+SwiperCore.use([EffectCoverflow, Pagination, Autoplay, Lazy]);
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -202,10 +212,48 @@ class App extends React.Component {
               </Fade>
             </div>
           ) : this.state.checker === "Hospitals" ? (
-            <Row>
-              {filteredC.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={4}>
-                  <Fade>
+            // <Row>
+            //   {filteredC.map((data, i) => (
+            //     <Col key={i} sm={12} md={6} lg={4} xl={4}>
+            //       <Fade>
+            //         <ListCard
+            //           key={i}
+            //           id={data.id}
+            //           city={data.City}
+            //           hospital={data.Hospital_Name}
+            //           address={data.Hospital_Address}
+            //           bed_status={data.Bed_Status}
+            //           totalBeds={data.Total_Beds}
+            //           avail_beds={data.Available_Beds}
+            //           bed_division={data.Bed_Division}
+            //           contact={data.Contact}
+            //         />
+            //       </Fade>
+            //     </Col>
+            //   ))}
+            // </Row>
+            <div className={classes.swiper_container}>
+              <Swiper
+                effect={"coverflow"}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={"auto"}
+                coverflowEffect={{
+                  rotate: 20,
+                  stretch: 0,
+                  depth: 200,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                loop={true}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                }}
+                className="mySwiper"
+              >
+                {filteredC.map((data, i) => (
+                  <SwiperSlide key={i}>
                     <ListCard
                       key={i}
                       id={data.id}
@@ -218,14 +266,14 @@ class App extends React.Component {
                       bed_division={data.Bed_Division}
                       contact={data.Contact}
                     />
-                  </Fade>
-                </Col>
-              ))}
-            </Row>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           ) : this.state.checker === "Oxygen" ? (
             <Row>
               {filteredO.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <OxygenCards
                       key={i}
@@ -246,7 +294,7 @@ class App extends React.Component {
           ) : this.state.checker === "Plasma" ? (
             <Row>
               {filteredP.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <PlasmaCards
                       key={i}
@@ -265,7 +313,7 @@ class App extends React.Component {
           ) : this.state.checker === "Medicines" ? (
             <Row>
               {filteredM.map((data, i) => (
-                <Col key={i} sm={12} md={6} lg={4} xl={3}>
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
                   <Fade>
                     <MedicineCards
                       key={i}
