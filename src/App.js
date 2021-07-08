@@ -212,48 +212,10 @@ class App extends React.Component {
               </Fade>
             </div>
           ) : this.state.checker === "Hospitals" ? (
-            // <Row>
-            //   {filteredC.map((data, i) => (
-            //     <Col key={i} sm={12} md={6} lg={4} xl={4}>
-            //       <Fade>
-            //         <ListCard
-            //           key={i}
-            //           id={data.id}
-            //           city={data.City}
-            //           hospital={data.Hospital_Name}
-            //           address={data.Hospital_Address}
-            //           bed_status={data.Bed_Status}
-            //           totalBeds={data.Total_Beds}
-            //           avail_beds={data.Available_Beds}
-            //           bed_division={data.Bed_Division}
-            //           contact={data.Contact}
-            //         />
-            //       </Fade>
-            //     </Col>
-            //   ))}
-            // </Row>
-            <div className={classes.swiper_container}>
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                coverflowEffect={{
-                  rotate: 20,
-                  stretch: 0,
-                  depth: 200,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                loop={true}
-                autoplay={{
-                  delay: 4000,
-                  disableOnInteraction: false,
-                }}
-                className="mySwiper"
-              >
-                {filteredC.map((data, i) => (
-                  <SwiperSlide key={i}>
+            <Row>
+              {filteredC.map((data, i) => (
+                <Col key={i} sm={12} md={6} lg={4} xl={4}>
+                  <Fade>
                     <ListCard
                       key={i}
                       id={data.id}
@@ -266,11 +228,49 @@ class App extends React.Component {
                       bed_division={data.Bed_Division}
                       contact={data.Contact}
                     />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          ) : this.state.checker === "Oxygen" ? (
+                  </Fade>
+                </Col>
+              ))}
+            </Row>
+          ) : // <div className={classes.swiper_container}>
+          //   <Swiper
+          //     effect={"coverflow"}
+          //     grabCursor={true}
+          //     centeredSlides={true}
+          //     slidesPerView={"auto"}
+          //     coverflowEffect={{
+          //       rotate: 20,
+          //       stretch: 0,
+          //       depth: 200,
+          //       modifier: 1,
+          //       slideShadows: true,
+          //     }}
+          //     loop={true}
+          //     autoplay={{
+          //       delay: 4000,
+          //       disableOnInteraction: false,
+          //     }}
+          //     className="mySwiper"
+          //   >
+          //     {filteredC.map((data, i) => (
+          //       <SwiperSlide key={i}>
+          //         <ListCard
+          //           key={i}
+          //           id={data.id}
+          //           city={data.City}
+          //           hospital={data.Hospital_Name}
+          //           address={data.Hospital_Address}
+          //           bed_status={data.Bed_Status}
+          //           totalBeds={data.Total_Beds}
+          //           avail_beds={data.Available_Beds}
+          //           bed_division={data.Bed_Division}
+          //           contact={data.Contact}
+          //         />
+          //       </SwiperSlide>
+          //     ))}
+          //   </Swiper>
+          // </div>
+          this.state.checker === "Oxygen" ? (
             <Row>
               {filteredO.map((data, i) => (
                 <Col key={i} sm={12} md={6} lg={4} xl={4}>
